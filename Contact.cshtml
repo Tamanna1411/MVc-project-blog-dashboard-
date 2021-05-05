@@ -1,0 +1,43 @@
+﻿@model List<BLOGW.Models.BlogPostModel>
+@{
+    ViewBag.Title = "My Blog";
+}
+
+@if (ViewBag.Message != null)
+{
+    <h4>@ViewBag.Message</h4>
+}
+
+@if (Model == null || Model.Count == 0)
+{
+    <h1>Blog empty</h1>
+    <p>Either under development, or author is busy. Visit back again later! :-)</p>
+    <a href="~/Home/create">Create new post</a>
+}
+else
+{
+    <h1 style="color:darkred">My blog</h1>
+    <h2 style="color:indianred">Read my blog posts below...</h2>
+    // Content is available.
+    <h3><a href="~/Home/Create" style="color:darkgreen">Create Fund Raiser post</a></h3>
+    foreach (var post in Model)
+    {
+        int tagIndex = 1;
+        <h4><a href="~/Home/read/@post.ID">@post.Title</a></h4>
+        <p>
+            @foreach (var tag in post.Tags)
+            {
+                if (tagIndex == post.Tags.Count)
+                {
+                    <span class="tag"><a href="~/Home/tag/@tag">@tag</a></span>
+                }
+                else
+                {
+                    <span class="tag"><a href="~/Home/tag/@tag">@tag</a></span>
+                }
+
+                tagIndex++;
+            }
+        </p>
+    }
+}

@@ -1,0 +1,30 @@
+﻿<div>
+    <h1 style="color:orchid"> Fund raiser blog post site</h1>
+    <p class="lead">This is a blog posting site where you can post a fund raising blog.</p>
+
+</div>
+
+@model List<BLOGW.Models.BlogPostModel>
+@{
+    ViewBag.Title = "profile";
+}
+
+@if (ViewBag.Message != null)
+{
+    <h4>@ViewBag.Message</h4>
+}
+
+@if (Model == null || Model.Count == 0)
+{
+    <h1>Contact empty</h1>
+    <p>Either under development, or author is busy. Visit back again later! :-)</p>
+    <a href="~/Home/About">Create new contact</a>
+}
+else
+{
+    <h4 style="color:indianred">Read my information...</h4>
+    // Content is available.
+    <h3><a href="~/Home/About" style="color:darkgreen">Create new contact</a></h3>
+
+}
+

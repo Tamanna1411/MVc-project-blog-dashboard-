@@ -4,7 +4,7 @@
     var tagIndex = 1;
 }
 
-<h4 style="font-weight: bold;">@Model.Title</h4>
+<h5 style="font-weight: bold; color:darkblue">@Model.Title</h5>
 
 <p>@Html.Raw(Model.Content.Replace("\r\n", "<br />"))</p>
 <p>Posted by —Tamanna — on @Model.CreateTime.ToString("MMMM dd, yyyy 'at' hh:mm tt")</p>
@@ -12,11 +12,11 @@
     Tagged under:
     @foreach (var tag in Model.Tags)
     {
-        <span class="tag"><a href="~/blog/tag/@tag">@tag</a></span>
+        <span class="tag"><a href="~/Home/tag/@tag">@tag</a></span>
         if (tagIndex == Model.Tags.Count)
         {
             // In the end, write the edit hyperlink
-            <span><a href="~/blog/edit/@Model.ID">Edit</a></span>
+            <span><a href="~/Home/edit/@Model.ID">Edit</a></span>
         }
 
         // Finally increment the index
